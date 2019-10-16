@@ -43,13 +43,28 @@ public class JacksonObjectMapperExample {
 		byte[] mapData = Files.readAllBytes(Paths.get("D:\\ais\\AAM\\json.array\\src\\main\\java\\data.txt"));
 		Map<String,String> myMap = new HashMap<String, String>();
 
-		ObjectMapper objectMappe = new ObjectMapper();
 		myMap = objectMapper.readValue(mapData, HashMap.class);
 		System.out.println("Map is: "+myMap);
 
 		//another way
 		myMap = objectMapper.readValue(mapData, new TypeReference<HashMap<String,String>>() {});
 		System.out.println("Map using TypeReference: "+myMap);
+		
+
+
+
+		//read JSON like DOM Parser
+		JsonNode rootNode = objectMapper.readTree(jsonData);
+		JsonNode idNode = rootNode.path("id");
+		System.out.println("id = "+idNode.asInt());
+
+		JsonNode phoneNosNode = rootNode.path("phoneNumbers");
+		Iterator<JsonNode> elements = phoneNosNode.elements();
+		while(elements.hasNext()){
+			JsonNode phone = elements.next();
+			System.out.println("Phone No = "+phone.asLong());
+		}
+
 	}
 	
 	public static Employee createEmployee() {
