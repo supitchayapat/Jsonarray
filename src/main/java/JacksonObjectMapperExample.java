@@ -40,6 +40,16 @@ public class JacksonObjectMapperExample {
 		StringWriter stringEmp = new StringWriter();
 		objectMapper.writeValue(stringEmp, emp1);
 		System.out.println("Employee JSON is\n"+stringEmp);
+		byte[] mapData = Files.readAllBytes(Paths.get("D:\\ais\\AAM\\json.array\\src\\main\\java\\data.txt"));
+		Map<String,String> myMap = new HashMap<String, String>();
+
+		ObjectMapper objectMappe = new ObjectMapper();
+		myMap = objectMapper.readValue(mapData, HashMap.class);
+		System.out.println("Map is: "+myMap);
+
+		//another way
+		myMap = objectMapper.readValue(mapData, new TypeReference<HashMap<String,String>>() {});
+		System.out.println("Map using TypeReference: "+myMap);
 	}
 	
 	public static Employee createEmployee() {
@@ -69,5 +79,6 @@ public class JacksonObjectMapperExample {
 
 		return emp;
 	}
+	
 
 }
