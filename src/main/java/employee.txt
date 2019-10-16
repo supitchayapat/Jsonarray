@@ -1,0 +1,48 @@
+
+{
+  "id": 123,
+  "name": "Pankaj",
+  "permanent": true,
+  "address": {
+    "street": "Albany Dr",
+    "city": "San Jose",
+    "zipcode": 95129
+  },
+  "phoneNumbers": [
+    123456,
+    987654
+  ],
+  "role": "Manager",
+  "cities": [
+    "Los Angeles",
+    "New York"
+  ],
+  "properties": {
+    "age": "29 years",
+    "salary": "1000 USD"
+  }
+},
+
+{
+  "id": 234,
+  "name": "dusit",
+  "permanent": false,
+  "address": {
+    "street": "pachautid",
+    "city": "bangkok",
+    "zipcode": 10200
+  },
+  "phoneNumbers": [
+    087777,
+    123444
+  ],
+  "role": "programmer",
+  "cities": [
+    "thailand",
+    "Bangkok"
+  ],
+  "properties": {
+    "age": "22 years",
+    "salary": "500 USD"
+  }
+}
